@@ -5,11 +5,11 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.dispatcher import FSMContext
 from aiogram.types import Message, ParseMode
 from aiogram.dispatcher.filters import Text
-API_TOKEN = '5725900458:AAG7tV_nDgroqqTK4ZGHMY05jMkA9wAQNcg'
+API_TOKEN = '6129997460:AAGPryWZEq_hZiNMU0z3wxmobUr60Bn3N4s'
 GROUP_ID_FILE = 'group_ids.txt'
-admins = [1893838178,]
+admins = [576931411,1893838178]
 user_data = {}
-user_data[admins[0]] = {}
+# user_data[admins[0]] = {}
 # with open(filename) as file:
 #     while (line := file.readline().rstrip()):
 #         print(line)
@@ -46,6 +46,7 @@ async def cmd_send_to_groups(message: Message):
 @dp.message_handler(commands='savethisgroup')
 async def handle_group_join(message: Message):
     group_id = message.chat.id
+    print(group_id, "qwwer")
     if group_id not in group_ids:
         write_group_id_to_file(group_id)
         group_ids.append(group_id)
@@ -74,7 +75,8 @@ async def handle_sender_message(message: Message):
     ynkb.add(ybt, nbt)
     if  not message.chat.type in ["group", "channel"]:
         if message.from_user.id in admins:
-            user_data[message.from_user.id]["message_id"] = message.message_id
+            user_data[message.from_user.id] = {"message_id": message.message_id}
+            # user_data[message.from_user.id][] = 
             await message.reply("DO YOU WANT SEND THIS MESSAGE TO ALL GROUP", reply_markup=ynkb)
         else:
             await message.reply("YOU DON'T HAVE THIS PERMISSION")
