@@ -71,11 +71,12 @@ async def handle_sender_message(message: Message):
     ybt = types.KeyboardButton("YES")
     nbt = types.KeyboardButton("NO")
     ynkb.add(ybt, nbt)
-    if message.from_user.id in admins:
-        user_data[message.from_user.id]["message_id"] = message.message_id
-        await message.reply("DO YOU WANT SEND THIS MESSAGE TO ALL GROUP", reply_markup=ynkb)
-    else:
-        await message.reply("YOU DON'T HAVE THIS PERMISSION")
+    if  not message.chat.type in ["group", "channel"]:
+        if message.from_user.id in admins:
+            user_data[message.from_user.id]["message_id"] = message.message_id
+            await message.reply("DO YOU WANT SEND THIS MESSAGE TO ALL GROUP", reply_markup=ynkb)
+        else:
+            await message.reply("YOU DON'T HAVE THIS PERMISSION")
 
         
 
