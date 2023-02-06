@@ -61,7 +61,6 @@ async def handle_choices(message: types.Message):
             print(str(e))
             await message.answer("There was an error with your request.\nPlease check the information you entered and try again.")
     else:
-        await message.answer(message)
         await message.answer("I UNDERSTAND.\nIF YOU WANT TO SEND MESSAGE YOUR GROUPS.\nI ALWAYS READY")
 
 
