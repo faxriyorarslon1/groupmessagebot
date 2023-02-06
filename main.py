@@ -49,6 +49,8 @@ async def handle_group_join(message: Message):
     if group_id not in group_ids:
         write_group_id_to_file(group_id)
         group_ids.append(group_id)
+        await bot.delete_message(message.chat.id, message_id=message.message_id)
+        await bot.send_message(chat_id=message.from_user.id, text = "I ADDED THE NEW GROUP(CHANNEL) TO MY LIST.")
 
 @dp.message_handler(Text(equals=["YES", "NO"]))
 async def handle_choices(message: types.Message):
