@@ -70,14 +70,23 @@ async def handle_choices(message: types.Message):
 async def handle_sender_message(message: Message):
     if  message.chat.type in ["private"]:
         print(message)
+        starttext = "👋Hi! I AM <b>🤖McPoster Bot</b>.\n"
+        starttext += "🔊DO YOU WANT SEND MESSAGES TO YOUR GROUP ?\n"
+        starttext += "🔹ADD ME AS <b>ADMIN<b> TO YOUR GROUP\n"
+        starttext += "🔹WRITE <i>/savethisgroup</i> COMMAND IN YOUR GROUP CHAT\n"
+        starttext += "🔷THEN YOU MAY SEND YOUR MESSAGE TO ME\n"
+        starttext += "🟩USING <u>PRIVATE CHAT</u>"
         if message.from_user.id in admins:
-            ynkb = types.ReplyKeyboardMarkup(one_time_keyboard=True, resize_keyboard=True)
-            ybt = types.KeyboardButton("YES")
-            nbt = types.KeyboardButton("NO")
-            ynkb.add(ybt, nbt)
-            user_data[message.from_user.id] = {"message_id": message.message_id}
-            # user_data[message.from_user.id][] = 
-            await message.reply("DO YOU WANT SEND THIS MESSAGE TO ALL GROUP", reply_markup=ynkb)
+            if message.text == "/start":
+                await bot.send_message(message.chat.id, starttext, parse_mode='html')
+            else:
+                ynkb = types.ReplyKeyboardMarkup(one_time_keyboard=True, resize_keyboard=True)
+                ybt = types.KeyboardButton("YES")
+                nbt = types.KeyboardButton("NO")
+                ynkb.add(ybt, nbt)
+                user_data[message.from_user.id] = {"message_id": message.message_id}
+                # user_data[message.from_user.id][] = 
+                await message.reply("DO YOU WANT SEND THIS MESSAGE TO ALL GROUP", reply_markup=ynkb)
         else:
             await message.reply("YOU DON'T HAVE THIS PERMISSION")
 
