@@ -72,7 +72,7 @@ async def handle_sender_message(message: Message):
         print(message)
         starttext = "👋Hi! I AM 🤖<b>McPoster Bot</b>.\n"
         starttext += "🔊DO YOU WANT SEND MESSAGES TO YOUR GROUP ?\n"
-        starttext += "🔹ADD ME AS <b>ADMIN<b> TO YOUR GROUP\n"
+        starttext += "🔹ADD ME AS <b>ADMIN</b> TO YOUR GROUP\n"
         starttext += "🔹WRITE <i>/savethisgroup</i> COMMAND IN YOUR GROUP CHAT\n"
         starttext += "🔷THEN YOU MAY SEND YOUR MESSAGE TO ME\n"
         starttext += "🟩USING <u>PRIVATE CHAT</u>"
