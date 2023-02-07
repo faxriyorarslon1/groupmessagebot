@@ -7,7 +7,7 @@ from aiogram.types import Message, ParseMode
 from aiogram.dispatcher.filters import Text
 API_TOKEN = '6129997460:AAGPryWZEq_hZiNMU0z3wxmobUr60Bn3N4s'
 GROUP_ID_FILE = 'group_ids.txt'
-admins = [576931411,1893838178]
+admins = [576931411,1893838178, 930377270]
 user_data = {}
 # user_data[admins[0]] = {}
 # with open(filename) as file:
@@ -46,7 +46,6 @@ async def cmd_send_to_groups(message: Message):
 @dp.message_handler(commands='savethisgroup')
 async def handle_group_join(message: Message):
     group_id = message.chat.id
-    print(group_id, "qwwer")
     if group_id not in group_ids:
         write_group_id_to_file(group_id)
         group_ids.append(group_id)
@@ -69,12 +68,13 @@ async def handle_choices(message: types.Message):
 
 @dp.message_handler(content_types=['photo', 'video', 'text'])
 async def handle_sender_message(message: Message):
-    ynkb = types.ReplyKeyboardMarkup(one_time_keyboard=True, resize_keyboard=True)
-    ybt = types.KeyboardButton("YES")
-    nbt = types.KeyboardButton("NO")
-    ynkb.add(ybt, nbt)
-    if  not message.chat.type in ["group", "channel"]:
+    if  message.chat.type in ["private"]:
+        print(message)
         if message.from_user.id in admins:
+            ynkb = types.ReplyKeyboardMarkup(one_time_keyboard=True, resize_keyboard=True)
+            ybt = types.KeyboardButton("YES")
+            nbt = types.KeyboardButton("NO")
+            ynkb.add(ybt, nbt)
             user_data[message.from_user.id] = {"message_id": message.message_id}
             # user_data[message.from_user.id][] = 
             await message.reply("DO YOU WANT SEND THIS MESSAGE TO ALL GROUP", reply_markup=ynkb)
