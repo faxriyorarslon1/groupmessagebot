@@ -70,7 +70,7 @@ async def handle_choices(message: types.Message):
 async def handle_sender_message(message: Message):
     if  message.chat.type in ["private"]:
         print(message)
-        starttext = "👋Hi! I AM <b>🤖McPoster Bot</b>.\n"
+        starttext = "👋Hi! I AM 🤖<b>McPoster Bot</b>.\n"
         starttext += "🔊DO YOU WANT SEND MESSAGES TO YOUR GROUP ?\n"
         starttext += "🔹ADD ME AS <b>ADMIN<b> TO YOUR GROUP\n"
         starttext += "🔹WRITE <i>/savethisgroup</i> COMMAND IN YOUR GROUP CHAT\n"
