@@ -7,7 +7,7 @@ from aiogram.types import Message, ParseMode
 from aiogram.dispatcher.filters import Text
 API_TOKEN = '6129997460:AAHK4Jc5iIKmSqYJY23WbJI1Zdn8UdygOpM'
 GROUP_ID_FILE = 'group_ids.txt'
-admins = [576931411,1893838178, 930377270]
+admins = [576931411,1893838178, 930377270, 5970983981]
 user_data = {}
 
 
