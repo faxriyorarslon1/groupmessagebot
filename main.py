@@ -5,16 +5,12 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.dispatcher import FSMContext
 from aiogram.types import Message, ParseMode
 from aiogram.dispatcher.filters import Text
-API_TOKEN = '6129997460:AAGPryWZEq_hZiNMU0z3wxmobUr60Bn3N4s'
+API_TOKEN = '6129997460:AAHK4Jc5iIKmSqYJY23WbJI1Zdn8UdygOpM'
 GROUP_ID_FILE = 'group_ids.txt'
 admins = [576931411,1893838178, 930377270]
 user_data = {}
-# user_data[admins[0]] = {}
-# with open(filename) as file:
-#     while (line := file.readline().rstrip()):
-#         print(line)
 
-# Configure logging
+
 logging.basicConfig(level=logging.INFO)
 
 # Initialize bot and dispatcher
